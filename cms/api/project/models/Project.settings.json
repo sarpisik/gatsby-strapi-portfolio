@@ -1,0 +1,43 @@
+{
+  "connection": "default",
+  "collectionName": "project",
+  "info": {
+    "name": "project",
+    "description": "Portfolio projects"
+  },
+  "options": {
+    "timestamps": [
+      "createdAt",
+      "updatedAt"
+    ]
+  },
+  "attributes": {
+    "title": {
+      "minLength": 5,
+      "required": true,
+      "unique": true,
+      "type": "string"
+    },
+    "content": {
+      "minLength": 10,
+      "required": true,
+      "type": "text"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": true
+    },
+    "demo_link": {
+      "unique": true,
+      "required": true,
+      "type": "string"
+    },
+    "github_link": {
+      "unique": true,
+      "required": true,
+      "type": "string"
+    }
+  }
+}
