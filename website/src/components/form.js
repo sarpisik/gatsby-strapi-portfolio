@@ -27,6 +27,7 @@ const Form = () => {
           setForm({ ...form, isLoading: false, result: "fail" })
         })
     }
+  console.log(process.env.MESSAGE_URL)
 
   return (
     <Fragment>
