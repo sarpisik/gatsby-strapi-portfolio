@@ -1,9 +1,5 @@
 'use strict';
 
-const { exec } = require('child_process'),
-  path = require('path'),
-  blogPath = path.join(__dirname, '..', '..', '..', '..', 'website');
-
 /**
  * Lifecycle callbacks for the `Page` model.
  */
@@ -38,20 +34,7 @@ module.exports = {
 
   // After creating a value.
   // Fired after an `insert` query.
-  afterCreate: async () => {
-    try {
-      exec('npm run build', { cwd: blogPath }, (error, stdout, stderr) => {
-        if (error) {
-          console.error(`exec error: ${error}`);
-          return;
-        }
-        console.log(`stdout: ${stdout}`);
-        console.log(`stderr: ${stderr}`);
-      });
-    } catch (error) {
-      console.error(error);
-    }
-  },
+  afterCreate: strapi.services.website.build,
 
   // Before updating a value.
   // Fired before an `update` query.
@@ -59,20 +42,7 @@ module.exports = {
 
   // After updating a value.
   // Fired after an `update` query.
-  afterUpdate: async () => {
-    try {
-      exec('npm run build', { cwd: blogPath }, (error, stdout, stderr) => {
-        if (error) {
-          console.error(`exec error: ${error}`);
-          return;
-        }
-        console.log(`stdout: ${stdout}`);
-        console.log(`stderr: ${stderr}`);
-      });
-    } catch (error) {
-      console.error(error);
-    }
-  },
+  afterUpdate: strapi.services.website.build,
 
   // Before destroying a value.
   // Fired before a `delete` query.
@@ -80,18 +50,5 @@ module.exports = {
 
   // After destroying a value.
   // Fired after a `delete` query.
-  afterDestroy: async () => {
-    try {
-      exec('npm run build', { cwd: blogPath }, (error, stdout, stderr) => {
-        if (error) {
-          console.error(`exec error: ${error}`);
-          return;
-        }
-        console.log(`stdout: ${stdout}`);
-        console.log(`stderr: ${stderr}`);
-      });
-    } catch (error) {
-      console.error(error);
-    }
-  }
+  afterDestroy: strapi.services.website.build
 };
