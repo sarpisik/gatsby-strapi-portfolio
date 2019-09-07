@@ -42,7 +42,10 @@ module.exports = {
         start_url: `/`,
         background_color: `#6CD4F4`,
         theme_color: `#6CD4F4`,
-        display: `minimal-ui`,
+        // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
+        // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
+        display: "standalone",
+        // display: `minimal-ui`,
         icon: `src/images/sarp_isik_dark_logo.png`, // This path is relative to the root of the site.
       },
     },

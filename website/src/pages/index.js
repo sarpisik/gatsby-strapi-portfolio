@@ -6,6 +6,7 @@ import "../styles/main.css"
 import Header from "../components/header"
 import CopyRight from "../components/copyRight"
 import Contact from "../components/contact"
+import SEO from "../components/seo"
 
 const Intro = props => (
   <Fragment>
@@ -50,6 +51,7 @@ const RecentWorks = ({ projects }) => (
 
 const IndexPage = ({ data }) => (
   <Fragment>
+    <SEO title="Home" />
     <Header />
     <div id="main">
       <section id="one">
