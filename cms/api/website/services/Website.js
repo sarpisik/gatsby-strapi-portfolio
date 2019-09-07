@@ -12,7 +12,7 @@ const { exec } = require('child_process'),
 module.exports = {
   build: async () => {
     try {
-      process.env.NODE_ENV === 'production' &&
+      (await process.env.NODE_ENV) === 'production' &&
         exec('npm run build', { cwd }, (error, stdout, stderr) => {
           if (error) {
             console.error(`exec error: ${error}`);

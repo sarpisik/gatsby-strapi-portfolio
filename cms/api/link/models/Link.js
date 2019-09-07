@@ -34,7 +34,7 @@ module.exports = {
 
   // After creating a value.
   // Fired after an `insert` query.
-  afterCreate: strapi.services.website.build,
+  afterCreate: async () => await strapi.services.website.build(),
 
   // Before updating a value.
   // Fired before an `update` query.
@@ -42,7 +42,7 @@ module.exports = {
 
   // After updating a value.
   // Fired after an `update` query.
-  afterUpdate: strapi.services.website.build,
+  afterUpdate: async () => await strapi.services.website.build(),
 
   // Before destroying a value.
   // Fired before a `delete` query.
@@ -50,5 +50,5 @@ module.exports = {
 
   // After destroying a value.
   // Fired after a `delete` query.
-  afterDestroy: strapi.services.website.build
+  afterDestroy: async () => await strapi.services.website.build()
 };
