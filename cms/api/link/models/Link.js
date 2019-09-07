@@ -1,5 +1,9 @@
 'use strict';
 
+const { exec } = require('child_process'),
+  path = require('path'),
+  blogPath = path.join(__dirname, '..', '..', '..', '..', 'website');
+
 /**
  * Lifecycle callbacks for the `Link` model.
  */
@@ -7,48 +11,87 @@
 module.exports = {
   // Before saving a value.
   // Fired before an `insert` or `update` query.
-  // beforeSave: async (model) => {},
+  // beforeSave: async (model, attrs, options) => {},
 
   // After saving a value.
   // Fired after an `insert` or `update` query.
-  // afterSave: async (model, result) => {},
+  // afterSave: async (model, attrs, options, result) => {},
 
   // Before fetching all values.
   // Fired before a `fetchAll` operation.
-  // beforeFetchAll: async (model) => {},
+  // beforeFetchAll: async (model, attrs, options) => {},
 
   // After fetching all values.
   // Fired after a `fetchAll` operation.
-  // afterFetchAll: async (model, results) => {},
+  // afterFetchAll: async (model, attrs, options, results) => {},
 
   // Fired before a `fetch` operation.
-  // beforeFetch: async (model) => {},
+  // beforeFetch: async (model, attrs, options) => {},
 
   // After fetching a value.
   // Fired after a `fetch` operation.
-  // afterFetch: async (model, result) => {},
+  // afterFetch: async (model, attrs, options, result) => {},
 
   // Before creating a value.
   // Fired before an `insert` query.
-  // beforeCreate: async (model) => {},
+  // beforeCreate: async (model, attrs, options) => {},
 
   // After creating a value.
   // Fired after an `insert` query.
-  // afterCreate: async (model, result) => {},
+  afterCreate: async () => {
+    try {
+      exec('npm run build', { cwd: blogPath }, (error, stdout, stderr) => {
+        if (error) {
+          console.error(`exec error: ${error}`);
+          return;
+        }
+        console.log(`stdout: ${stdout}`);
+        console.log(`stderr: ${stderr}`);
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  },
 
   // Before updating a value.
   // Fired before an `update` query.
-  // beforeUpdate: async (model) => {},
+  // beforeUpdate: async (model, attrs, options) => {},
 
   // After updating a value.
   // Fired after an `update` query.
-  // afterUpdate: async (model, result) => {},
+  afterUpdate: async () => {
+    try {
+      exec('npm run build', { cwd: blogPath }, (error, stdout, stderr) => {
+        if (error) {
+          console.error(`exec error: ${error}`);
+          return;
+        }
+        console.log(`stdout: ${stdout}`);
+        console.log(`stderr: ${stderr}`);
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  },
 
   // Before destroying a value.
   // Fired before a `delete` query.
-  // beforeDestroy: async (model) => {},
+  // beforeDestroy: async (model, attrs, options) => {},
 
   // After destroying a value.
   // Fired after a `delete` query.
-  // afterDestroy: async (model, result) => {}
+  afterDestroy: async () => {
+    try {
+      exec('npm run build', { cwd: blogPath }, (error, stdout, stderr) => {
+        if (error) {
+          console.error(`exec error: ${error}`);
+          return;
+        }
+        console.log(`stdout: ${stdout}`);
+        console.log(`stderr: ${stderr}`);
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  }
 };
