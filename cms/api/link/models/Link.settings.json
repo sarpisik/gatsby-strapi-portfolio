@@ -1,0 +1,25 @@
+{
+  "connection": "default",
+  "collectionName": "link",
+  "info": {
+    "name": "link",
+    "description": ""
+  },
+  "options": {
+    "timestamps": [
+      "createdAt",
+      "updatedAt"
+    ]
+  },
+  "attributes": {
+    "url": {
+      "required": true,
+      "type": "string"
+    },
+    "name": {
+      "unique": true,
+      "required": true,
+      "type": "string"
+    }
+  }
+}

@@ -26,6 +26,8 @@ module.exports = {
           "project",
           "page",
           "user",
+          "profile",
+          "link",
         ],
         queryLimit: 1000,
       },
@@ -35,13 +37,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Sarp ISIK Portfolio Web App`,
+        short_name: `Sarp ISIK`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#6CD4F4`,
+        theme_color: `#6CD4F4`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/sarp_isik_dark_logo.png`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
