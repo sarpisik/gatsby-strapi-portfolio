@@ -51,7 +51,16 @@ const RecentWorks = ({ projects }) => (
 
 const IndexPage = ({ data }) => (
   <Fragment>
-    <SEO title="Home" />
+    <SEO
+      title="Home"
+      meta={[
+        {
+          name: "keywords",
+          content:
+            "web developer portfolio, web developer full stack, web developer freelance website, contact form, fullstack developer",
+        },
+      ]}
+    />
     <Header />
     <div id="main">
       <section id="one">

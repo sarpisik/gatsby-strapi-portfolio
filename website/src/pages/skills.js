@@ -48,7 +48,16 @@ const Gatsby = () => {
 
 const Skills = () => (
   <Fragment>
-    <SEO title="Skills & Tools" />
+    <SEO
+      title="Skills & Tools"
+      meta={[
+        {
+          name: "keywords",
+          content:
+            "web developer skills, web developer full stack, web developer freelance skills, software skills, fullstack developer skills, frontend developer skills, backend developer skills, javascript, html5, css3, react js, node js, mongo db, gatsby, strapi, express js, mern stack, jamstack",
+        },
+      ]}
+    />
     <Container>
       <h1>Skills</h1>
       <h2>Basics</h2>

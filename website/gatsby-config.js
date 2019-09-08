@@ -7,6 +7,7 @@ module.exports = {
     title: `Sarp ISIK Portfolio`,
     description: `Full stack web developer portfolio with Strapi as headless CMS.`,
     author: `@sarpisik`,
+    siteUrl: process.env.SITE_URL,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -35,6 +36,17 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
+      resolve: `gatsby-plugin-gtag`,
+      options: {
+        // your google analytics tracking id
+        trackingId: process.env.GOOGLE_TRACK_ID,
+        // Puts tracking script in the head instead of the body
+        head: false,
+        // enable ip anonymization
+        anonymize: true,
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Sarp ISIK Portfolio Web App`,
@@ -48,19 +60,16 @@ module.exports = {
         icon: `src/images/sarp_isik_dark_logo.png`, // This path is relative to the root of the site.
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    `gatsby-plugin-offline`,
+    `gatsby-plugin-sitemap`,
     {
-      resolve: `gatsby-plugin-gtag`,
+      resolve: "gatsby-plugin-robots-txt",
       options: {
-        // your google analytics tracking id
-        trackingId: process.env.GOOGLE_TRACK_ID,
-        // Puts tracking script in the head instead of the body
-        head: false,
-        // enable ip anonymization
-        anonymize: true,
+        host: process.env.SITE_URL,
+        sitemap: `${process.env.SITE_URL}/sitemap.xml`,
+        policy: [{ userAgent: "*", disallow: "" }],
       },
     },
+    // To learn more, visit: https://gatsby.dev/offline // this (optional) plugin enables Progressive Web App + Offline functionality
+    `gatsby-plugin-offline`,
   ],
 }

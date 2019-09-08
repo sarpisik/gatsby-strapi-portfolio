@@ -7,7 +7,15 @@ import SEO from "../components/seo"
 
 const ProjectTemplate = ({ data }) => (
   <Fragment>
-    <SEO title={data.strapiProject.title} />
+    <SEO
+      title={data.strapiProject.title}
+      meta={[
+        {
+          name: "keywords",
+          content: `web developer portfolio project, web developer full stack project, web developer freelance project, portfolio project, fullstack developer project, ${data.strapiProject.title}`,
+        },
+      ]}
+    />
     <Container>
       <h1>{data.strapiProject.title}</h1>
       <Img fluid={data.strapiProject.image.childImageSharp.fluid} />
