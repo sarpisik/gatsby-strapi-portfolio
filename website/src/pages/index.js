@@ -68,7 +68,7 @@ const IndexPage = ({ data }) => (
       </section>
 
       <section id="two">
-        <RecentWorks projects={data.allStrapiProject.edges} />
+        <RecentWorks projects={data.allStrapiProject.edges.reverse()} />
       </section>
 
       <section id="three">
