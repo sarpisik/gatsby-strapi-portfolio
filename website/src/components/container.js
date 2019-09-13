@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
+import CopyRight from "./copyRight"
 
 const frameStyle = {
     height: "100%",
@@ -22,6 +23,8 @@ const Container = ({ children }) => (
       </Link>
       <hr />
       {children}
+      <hr />
+      <CopyRight />
     </div>
   </div>
 )
