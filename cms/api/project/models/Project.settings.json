@@ -28,16 +28,6 @@
       "via": "related",
       "plugin": "upload",
       "required": true
-    },
-    "demo_link": {
-      "unique": true,
-      "required": true,
-      "type": "string"
-    },
-    "github_link": {
-      "unique": true,
-      "required": true,
-      "type": "string"
     }
   }
 }

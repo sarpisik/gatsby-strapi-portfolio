@@ -28,20 +28,6 @@ const ProjectTemplate = ({ data }) => (
         }
         escapeHtml={false}
       />
-      <hr />
-      <a
-        href={data.strapiProject.demo_link}
-        className="icon solid fa-broadcast-tower"
-      >
-        &nbsp; Demo
-      </a>
-      <br />
-      <a
-        href={data.strapiProject.github_link}
-        className="icon brands fa-github-square"
-      >
-        &nbsp; Github
-      </a>
     </Container>
   </Fragment>
 )
@@ -53,8 +39,6 @@ export const query = graphql`
     strapiProject(id: { eq: $id }) {
       title
       content
-      demo_link
-      github_link
       image {
         childImageSharp {
           fluid(maxWidth: 960) {
