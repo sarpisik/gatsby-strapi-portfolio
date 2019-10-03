@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+Sitemap: https://sarpisik.com/sitemap.xml
+Host: https://sarpisik.com
