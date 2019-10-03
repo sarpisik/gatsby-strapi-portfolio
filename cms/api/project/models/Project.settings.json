@@ -32,10 +32,10 @@
     "type": {
       "required": true,
       "enum": [
-        "freelance",
-        "demo"
+        "freelance app",
+        "demo app"
       ],
-      "default": "freelance",
+      "default": "",
       "type": "enumeration"
     }
   }
