@@ -7,7 +7,7 @@ const EmailIcon = () => (
       <h3 className="icon solid fa-envelope">
         <span className="label">Email</span>
       </h3>
-      <a href="mailto:wdsarpisik@gmail.com">wdsarpisik@gmail.com</a>
+      <a href="mailto:contact@sarpisik.com">contact@sarpisik.com</a>
     </li>
   </ul>
 )

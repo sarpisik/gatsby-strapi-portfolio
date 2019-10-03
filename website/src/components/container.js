@@ -19,7 +19,7 @@ const Container = ({ children }) => (
   <div className="background-dark" style={frameStyle}>
     <div style={containerStyle}>
       <Link to="/" className="icon solid fa-long-arrow-alt-left">
-        &nbsp; Go Back
+        &nbsp; Back
       </Link>
       <hr />
       {children}

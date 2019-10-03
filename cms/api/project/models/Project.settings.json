@@ -28,6 +28,15 @@
       "via": "related",
       "plugin": "upload",
       "required": true
+    },
+    "type": {
+      "required": true,
+      "enum": [
+        "freelance",
+        "demo"
+      ],
+      "default": "freelance",
+      "type": "enumeration"
     }
   }
 }

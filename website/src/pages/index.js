@@ -7,6 +7,7 @@ import Header from "../components/header"
 import CopyRight from "../components/copyRight"
 import Contact from "../components/contact"
 import SEO from "../components/seo"
+import { capitalizeLetter } from "../lib/helpers"
 
 const Intro = props => (
   <Fragment>
@@ -24,9 +25,9 @@ const Intro = props => (
   </Fragment>
 )
 
-const RecentWorks = ({ projects }) => (
+const RecentWorks = ({ title, projects }) => (
   <Fragment>
-    <h2>Recent Works</h2>
+    <h2>{capitalizeLetter(`${title} works`)}</h2>
     <div className="row">
       {projects.map(project => (
         <article
@@ -68,10 +69,17 @@ const IndexPage = ({ data }) => (
       </section>
 
       <section id="two">
-        <RecentWorks projects={data.allStrapiProject.edges.reverse()} />
+        <RecentWorks
+          title="freelance"
+          projects={data.freelanceProjects.edges}
+        />
       </section>
 
       <section id="three">
+        <RecentWorks title="demo" projects={data.demoProjects.edges} />
+      </section>
+
+      <section id="four">
         <Contact />
       </section>
 
@@ -84,7 +92,30 @@ export default IndexPage
 
 export const pageQuery = graphql`
   query IndexQuery {
-    allStrapiProject {
+    freelanceProjects: allStrapiProject(
+      sort: { order: DESC, fields: createdAt }
+      filter: { type: { eq: "freelance" } }
+    ) {
+      edges {
+        node {
+          id
+          title
+          content
+          image {
+            childImageSharp {
+              fluid(maxWidth: 500) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          createdAt
+        }
+      }
+    }
+    demoProjects: allStrapiProject(
+      sort: { order: DESC, fields: createdAt }
+      filter: { type: { eq: "demo" } }
+    ) {
       edges {
         node {
           id
